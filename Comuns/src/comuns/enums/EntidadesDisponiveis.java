@@ -9,6 +9,22 @@ package comuns.enums;
  *
  * @author vitorlupinetti
  */
-public class EntidadesDisponiveis {
+public enum EntidadesDisponiveis {
+    Funcionario("funcionario"),
+
+    PEDIDO("pedido"),
+
+    PRODUTO("produto"),
     
+    CLIENTE("cliente");
+ 
+    private String descricao;
+ 
+    EntidadesDisponiveis(String descricao) {
+        this.descricao = descricao;
+    }
+ 
+    public String getDescricao() {
+        return descricao;
+    }
 }

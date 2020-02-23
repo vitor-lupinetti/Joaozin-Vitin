@@ -9,6 +9,19 @@ package comuns.enums;
  *
  * @author vitorlupinetti
  */
-public class TipoRepositorio {
+public enum TipoRepositorio {
     
+    SQL("sql"),
+    
+    TEXTO("texto");
+ 
+    private String descricao;
+ 
+    TipoRepositorio(String descricao) {
+        this.descricao = descricao;
+    }
+ 
+    public String getDescricao() {
+        return descricao;
+    }
 }
