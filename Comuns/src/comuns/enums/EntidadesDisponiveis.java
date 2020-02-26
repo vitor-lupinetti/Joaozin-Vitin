@@ -10,11 +10,15 @@ package comuns.enums;
  * @author vitorlupinetti
  */
 public enum EntidadesDisponiveis {
-    Funcionario("funcionario"),
+    GERENTE("gerente"),
+    
+    VENDEDOR("vendedor"),
 
     PEDIDO("pedido"),
 
     PRODUTO("produto"),
+    
+    ITEM_PEDIDO("item_pedido"),
     
     CLIENTE("cliente");
  
