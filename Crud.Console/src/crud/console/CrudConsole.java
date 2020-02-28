@@ -6,8 +6,10 @@
 package crud.console;
 
 //import br.com.comuns.crud.ec6.enums.TipoRepositorio;
+import business.config.Config;
 import EstadoMachine.EstadoMachine;
 import EstadoMachine.EnumEstado;
+import comuns.enums.TipoRepositorio;
 /**
  *
  * @author 082170017 082120032
@@ -19,7 +21,7 @@ public class CrudConsole {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Config.getInstance().setDatabase(TipoRepositorio.MYSQL);     import br.com.business.ec6.crud.config.Config;
+        Config.getInstance().setDatabase(TipoRepositorio.TEXTO);
         estadoConsole = EnumEstado.Inicio.getEstadoMaquina();;
         Boolean saida = false;
         while (!saida){

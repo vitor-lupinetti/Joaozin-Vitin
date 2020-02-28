@@ -10,6 +10,7 @@ package comuns.enums;
  * @author vitorlupinetti
  */
 public enum EntidadesDisponiveis {
+    FUNCIONARIO("funcionario"),
     GERENTE("gerente"),
     
     VENDEDOR("vendedor"),

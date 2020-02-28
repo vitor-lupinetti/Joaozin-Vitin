@@ -11,7 +11,6 @@ package comuns.enums;
  */
 public enum TipoRepositorio {
     
-    SQL("sql"),
     
     TEXTO("texto");
  

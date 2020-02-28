@@ -4,11 +4,35 @@
  * and open the template in the editor.
  */
 package business.config;
-
+import comuns.enums.TipoRepositorio;
 /**
  *
  * @author vitorlupinetti
  */
+
+
 public class Config {
+    private static Config uniqueInstance;
+ 
+    private Config() {
+    }
+ 
+    public static synchronized Config getInstance() {
+        if (uniqueInstance == null)
+            uniqueInstance = new Config();
+ 
+        return uniqueInstance;
+    }
+    
+    private TipoRepositorio tipoRepositorio; 
+
+    public TipoRepositorio getTipoRepositorio() {
+        return tipoRepositorio;
+    }
+
+    
+    public void setDatabase(TipoRepositorio tipoRepositorio) {
+        this.tipoRepositorio = tipoRepositorio;
+    }
     
 }
