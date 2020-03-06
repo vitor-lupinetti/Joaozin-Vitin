@@ -11,9 +11,6 @@ package comuns.enums;
  */
 public enum EntidadesDisponiveis {
     FUNCIONARIO("funcionario"),
-    GERENTE("gerente"),
-    
-    VENDEDOR("vendedor"),
 
     PEDIDO("pedido"),
 

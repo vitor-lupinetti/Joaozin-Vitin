@@ -7,8 +7,9 @@ package EstadoMachine;
 
 import crud.console.CrudConsole;
 import java.util.Scanner;
-/**
- *
+import business.acesso.Acesso;
+import comuns.vos.Funcionario;
+ /*
  * @author joao-
  */
 public class EstadoLogin extends EstadoMachine{
@@ -16,16 +17,16 @@ public class EstadoLogin extends EstadoMachine{
     @Override
     public boolean Executa() {
         boolean sair = false;
-        //Usuario user = new Usuario();    import br.com.comuns.crud.ec6.vos.acesso.Usuario;
+        Funcionario funcionario = new Funcionario();
         Scanner scan = new Scanner(System.in);
         System.out.println("**** LOGIN ****");
         System.out.println("Digite seu usuário:");
-        user.setLogin(scan.nextLine());
+        funcionario.setUsername(scan.nextLine());
         System.out.println("Digite sua senha:");
-        user.setSenha(scan.nextLine());
+        funcionario.setSenha(scan.nextLine());
         // TODO - Validação de senha
-        // Acesso acesso = new Acesso(); import br.com.business.ec6.crud.acesso.Acesso;
-        boolean senhaValida = acesso.validaUsuario(user);
+        Acesso acesso = new Acesso(); 
+        boolean senhaValida = acesso.validaFuncionario(funcionario);
         if (senhaValida)
             CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
         else {

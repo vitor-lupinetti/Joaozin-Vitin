@@ -12,7 +12,14 @@ package EstadoMachine;
 public enum EnumEstado {
     Inicio (new EstadoInicio()),
     Login (new EstadoLogin()),
-    Menu (new EstadoMenu());
+    MenuGerente (new EstadoMenuGerente()),
+     MenuVendedor(new EstadoMenuVendedor()),
+    CadastroFuncionario (new EstadoCadastraFuncionario()),
+    CadastraPedido (new EstadoCadastraPedido()),
+    CadastraProduto (new CadastraProduto()),
+    CadastraCliente (new CadastraCliente());
+   
+    
     
     private final EstadoMachine estadoMaquina;
     

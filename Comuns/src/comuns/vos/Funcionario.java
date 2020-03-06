@@ -59,7 +59,7 @@ public  class Funcionario extends Entidade {
     /**
      * @return the acesso
      */
-    public boolean isAcesso() {
+    public boolean getAcesso() {
         return acesso;
     }
 

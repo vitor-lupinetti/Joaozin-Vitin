@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package business.acesso;
-
+import comuns.vos.Funcionario;
+import comuns.enums.EntidadesDisponiveis;
 /**
  *
  * @author vitorlupinetti
@@ -14,13 +15,13 @@ public class Acesso {
         return (senhaRepositorio.equals(senhaDigitada)); 
     }
     
-    public boolean validaUsuario(Usuario user) {
+    public boolean validaFuncionario(Funcionario func) {
         boolean retorno = false;
         Repositorio repositorio = FabricaRepositorio.Fabrica();        
-        Usuario usuario = (Usuario)repositorio.localiza(user.getLogin(), EntidadesDisponiveis.USUARIO);
-        if (usuario != null)
+        Funcionario funcionario = (Funcionario)repositorio.localiza(func.getLogin(), EntidadesDisponiveis.FUNCIONARIO);
+        if (funcionario != null)
         {
-            retorno = validaSenha(usuario.getSenha(), user.getSenha());
+            retorno = validaSenha(funcionario.getSenha(), func.getSenha());
         }
         return retorno;
     }
