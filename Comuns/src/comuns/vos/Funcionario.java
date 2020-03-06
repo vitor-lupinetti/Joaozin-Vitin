@@ -9,11 +9,11 @@ import comuns.crud.basis.Entidade;
  *
  * @author vitorlupinetti
  */
-public abstract class Funcionario extends Entidade {
+public  class Funcionario extends Entidade {
     private String nome;
     private String username;
     private String senha;
-
+    private boolean acesso;
     /**
      * @return the nome
      */
@@ -54,6 +54,20 @@ public abstract class Funcionario extends Entidade {
      */
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    /**
+     * @return the acesso
+     */
+    public boolean isAcesso() {
+        return acesso;
+    }
+
+    /**
+     * @param acesso the acesso to set
+     */
+    public void setAcesso(boolean acesso) {
+        this.acesso = acesso;
     }
     
 }
