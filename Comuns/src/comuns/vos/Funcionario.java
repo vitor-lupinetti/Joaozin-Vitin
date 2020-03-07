@@ -9,7 +9,7 @@ import comuns.crud.basis.Entidade;
  *
  * @author vitorlupinetti
  */
-public  class Funcionario extends Entidade {
+public class Funcionario extends Entidade {
     private String nome;
     private String username;
     private String senha;

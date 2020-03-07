@@ -8,7 +8,7 @@ package dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import comuns.crud.basis.Entidade;
-
+import comuns.enums.EntidadesDisponiveis;
 /**
  *
  * @author vitorlupinetti
@@ -21,9 +21,11 @@ public abstract class DAO <E extends Entidade> {
         this.entityClass = entityClass;
     }
     
-    public abstract E seleciona(String codigo)throws SQLException;
-    public abstract E insere(Entidade entidade) throws SQLException;
-    public abstract ArrayList<E> lista() throws SQLException;
+    public abstract E seleciona(Entidade entidade, EntidadesDisponiveis enumEntidade)throws SQLException;
+    public abstract E insere(Entidade entidade, EntidadesDisponiveis enumEntidade);
+    public abstract E atualiza(Entidade entidade, EntidadesDisponiveis enumEntidade);
+    public abstract void deleta(Entidade entidade, EntidadesDisponiveis enumEntidade);
+    
     
     protected E getInstanceOfE()
     {

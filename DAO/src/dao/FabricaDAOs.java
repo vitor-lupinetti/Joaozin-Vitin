@@ -6,7 +6,7 @@
 package dao;
 import comuns.enums.EntidadesDisponiveis;
 import comuns.enums.TipoRepositorio;
-import comuns.vos.Funcionario;
+import dao.acesso.FuncionarioTextoDAO;
 /**
  *
  * @author vitorlupinetti
@@ -28,11 +28,12 @@ public class FabricaDAOs {
         switch (enumEntidade)
         {
             case FUNCIONARIO:
-                retorno = new UsuarioTextoDAO();
+                retorno = new FuncionarioTextoDAO();
                 break;            
             default:
                 retorno = null;
                 break;
         }
-    
+        return retorno;
+    }
 }

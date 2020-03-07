@@ -5,47 +5,79 @@
  */
 package dao.acesso;
 
+import comuns.crud.basis.Entidade;
+import comuns.crud.basis.FabricaEntidades;
+import comuns.enums.EntidadesDisponiveis;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
+import comuns.vos.Funcionario;
+import dao.DAO;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  *
  * @author vitorlupinetti
  */
-public class FuncionarioTextoDAO {
-       private final ConcurrentHashMap<String, Usuario> usuarios = new ConcurrentHashMap<>();
+public class FuncionarioTextoDAO extends DAO {
+       private final ConcurrentHashMap<String, Funcionario> funcionarios = new ConcurrentHashMap<>();
     
     public FuncionarioTextoDAO()
     { 
-        super(Usuario.class);
-        Usuario masterUser = new Usuario();
-        masterUser.setLogin("master");
-        masterUser.setSenha("master");        
-        usuarios.put("master", masterUser);
+        super(Funcionario.class);
+        
     }
+    
+    public static Funcionario leitor(String path, Entidade entidade) throws IOException {
+        String vetor [];
+        Funcionario f = (Funcionario)entidade;
+        Funcionario retorno = null;
+        BufferedReader buffRead = new BufferedReader(new FileReader(path));
+        String linha = "";
+        vetor = linha.split("|");
+       
+        if(vetor[1].equals(f.getUsername()))
+        {
+            retorno = new Funcionario();
+            retorno.setNome(vetor[0]);
+            retorno.setUsername(vetor[1]);
+            retorno.setSenha(vetor[2]);
+            retorno.setAcesso(vetor[3]);
+            return retorno;
+        }
+        
+        while (true) {
+            if (linha != null) {
+                System.out.println(linha);
+ 
+            } else
+                break;
+            linha = buffRead.readLine();
+        }
+        buffRead.close();
+        return retorno;
+    }
+ 
+
     @Override
-    public Entidade seleciona(int id) {
-        // Não há retorno por id
-        return null;
+    public Entidade insere(Entidade entidade, EntidadesDisponiveis enumEntidade) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Entidade localiza(String codigo) throws SQLException  {
-        Entidade entidade = usuarios.getOrDefault(codigo, null);
-        return entidade;
+    public Entidade seleciona(Entidade entidade, EntidadesDisponiveis enumEntidade) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleta(Entidade entidade, EntidadesDisponiveis enumEntidade) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Entidade atualiza(Entidade entidade, EntidadesDisponiveis enumEntidade) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    /* Opção 1 
-    */
-    @Override
-    public ArrayList<Entidade> lista() throws SQLException {
-        ArrayList<Entidade> entidades;
-        entidades = new ArrayList();
-        for (Usuario usuario : usuarios.values())
-        {
-            entidades.add(usuario);
-        }
-        return entidades;
-    }
 }
