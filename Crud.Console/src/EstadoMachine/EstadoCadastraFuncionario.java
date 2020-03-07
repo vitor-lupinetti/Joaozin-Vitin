@@ -4,16 +4,22 @@
  * and open the template in the editor.
  */
 package EstadoMachine;
-
+import comuns.vos.Funcionario;
+import java.util.Scanner;
 /**
  *
  * @author 082170017
  */
 public class EstadoCadastraFuncionario extends EstadoMachine{
 
+    Scanner scan = new Scanner(System.in);
     @Override
     public boolean Executa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Funcionario func = new Funcionario();
+        
+        System.out.println("Digite 0 para gerente ou 1 para vendedor: ");
+        String acesso = scan.nextLine();
+        func.setAcesso(acesso);
     }
     
 }
