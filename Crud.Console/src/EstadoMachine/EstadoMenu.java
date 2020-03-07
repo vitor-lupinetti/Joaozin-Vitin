@@ -17,6 +17,7 @@ public class EstadoMenu extends EstadoMachine{
         System.out.println(" Menu Principal");
         Scanner scan = new Scanner(System.in);
         System.out.println("0 - Sair");
+        System.out.println("1 - Login");
         int opcao = scan.nextInt();
         switch (opcao)
         {
@@ -24,7 +25,7 @@ public class EstadoMenu extends EstadoMachine{
                 CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
                 break;
             case 1:
-                
+                CrudConsole.estadoConsole = EnumEstado.Login.getEstadoMaquina();
                 break;
         }
         return false;

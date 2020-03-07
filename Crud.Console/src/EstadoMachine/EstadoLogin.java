@@ -17,21 +17,27 @@ public class EstadoLogin extends EstadoMachine{
     @Override
     public boolean Executa() {
         boolean sair = false;
-        Funcionario funcionario = new Funcionario();
+        Funcionario funcionario;
         Scanner scan = new Scanner(System.in);
         System.out.println("**** LOGIN ****");
         System.out.println("Digite seu usuário:");
-        funcionario.setUsername(scan.nextLine());
+        String login = scan.nextLine();
         System.out.println("Digite sua senha:");
-        funcionario.setSenha(scan.nextLine());
+        String senha = scan.nextLine();
         // TODO - Validação de senha
         Acesso acesso = new Acesso(); 
-        boolean senhaValida = acesso.validaFuncionario(funcionario);
-        if (senhaValida)
-            CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
+        funcionario = acesso.validaFuncionario(login, senha);
+        if(funcionario != null){
+            if (funcionario.getAcesso())
+                CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+            else
+            {
+                CrudConsole.estadoConsole = EnumEstado.MenuVendedor.getEstadoMaquina();
+            }
+        }
         else {
-            System.out.println("Dados inválidos!");
-        }            
+                System.out.println("Dados inválidos!");
+            }        
         return sair;
     }
 }

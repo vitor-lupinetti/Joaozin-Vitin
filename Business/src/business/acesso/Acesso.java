@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package business.acesso;
+import business.basis.FabricaRepositorio;
 import comuns.vos.Funcionario;
 import comuns.enums.EntidadesDisponiveis;
+import dao.repositorio.basis.Repositorio;
+
 /**
  *
  * @author vitorlupinetti
@@ -15,14 +18,18 @@ public class Acesso {
         return (senhaRepositorio.equals(senhaDigitada)); 
     }
     
-    public boolean validaFuncionario(Funcionario func) {
-        boolean retorno = false;
-        Repositorio repositorio = FabricaRepositorio.Fabrica();        
-        Funcionario funcionario = (Funcionario)repositorio.localiza(func.getLogin(), EntidadesDisponiveis.FUNCIONARIO);
+    public Funcionario validaFuncionario(String login, String senha) {
+        boolean valido = false;
+        Repositorio repositorio = FabricaRepositorio.Fabrica();   
+        
+        Funcionario funcionario = (Funcionario)repositorio.seleciona(login, EntidadesDisponiveis.FUNCIONARIO);
         if (funcionario != null)
         {
-            retorno = validaSenha(funcionario.getSenha(), func.getSenha());
+            valido = validaSenha(funcionario.getSenha(), senha);
         }
-        return retorno;
+        if(valido)
+            return funcionario;
+        else
+            return null;
     }
 }

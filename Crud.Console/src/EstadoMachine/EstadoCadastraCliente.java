@@ -5,18 +5,15 @@
  */
 package EstadoMachine;
 
-/*
- * 
+/**
  *
- * @author 082170017
+ * @author 082170031
  */
-public class EstadoMenuGerente extends EstadoMachine {
+public class EstadoCadastraCliente extends EstadoMachine{
 
     @Override
     public boolean Executa() {
-        
-        
-        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
