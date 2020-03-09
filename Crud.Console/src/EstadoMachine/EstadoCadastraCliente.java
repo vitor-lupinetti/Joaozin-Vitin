@@ -5,15 +5,28 @@
  */
 package EstadoMachine;
 
+import java.util.Scanner;
+import comuns.vos.Cliente;
+import crud.console.CrudConsole;
 /**
  *
  * @author 082170031
  */
 public class EstadoCadastraCliente extends EstadoMachine{
 
+    Scanner scan = new Scanner(System.in);
     @Override
     public boolean Executa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente cliente = new Cliente();
+        
+        System.out.println("Digite o nome do funcionario: ");
+        cliente.setNome(scan.nextLine());
+        System.out.println("Digite o Telefone: ");
+        cliente.setTelefone(scan.nextInt());
+        System.out.println("Digite o Endereço: ");
+        cliente.setEndereço(scan.nextLine());
+        CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+        return false;
     }
     
 }

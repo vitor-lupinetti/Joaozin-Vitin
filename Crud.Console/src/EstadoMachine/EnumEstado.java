@@ -16,8 +16,8 @@ public enum EnumEstado {
      MenuVendedor(new EstadoMenuVendedor()),
     CadastroFuncionario (new EstadoCadastraFuncionario()),
     CadastraPedido (new EstadoCadastraPedido()),
-    CadastraProduto (new CadastraProduto()),
-    CadastraCliente (new CadastraCliente());
+    CadastraProduto (new EstadoCadastraProduto()),
+    CadastraCliente (new EstadoCadastraCliente());
    
     
     
