@@ -13,7 +13,7 @@ public class Funcionario extends Entidade {
     private String nome;
     private String username;
     private String senha;
-    private int acesso;
+    private String acesso;
     /**
      * @return the nome
      */
@@ -59,14 +59,14 @@ public class Funcionario extends Entidade {
     /**
      * @return the acesso
      */
-    public int getAcesso() {
+    public String getAcesso() {
         return acesso;
     }
 
     /**
      * @param acesso the acesso to set
      */
-    public void setAcesso(int acesso) {
+    public void setAcesso(String acesso) {
         this.acesso = acesso;
     }
     

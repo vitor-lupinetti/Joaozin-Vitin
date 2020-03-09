@@ -21,8 +21,10 @@ public class Acesso {
     public Funcionario validaFuncionario(String login, String senha) {
         boolean valido = false;
         Repositorio repositorio = FabricaRepositorio.Fabrica();   
-        
-        Funcionario funcionario = (Funcionario)repositorio.seleciona(login, EntidadesDisponiveis.FUNCIONARIO);
+        Funcionario acesso = new Funcionario();
+        acesso.setUsername(login);
+        acesso.setSenha(senha);
+        Funcionario funcionario = (Funcionario)repositorio.seleciona(acesso, EntidadesDisponiveis.FUNCIONARIO);
         if (funcionario != null)
         {
             valido = validaSenha(funcionario.getSenha(), senha);

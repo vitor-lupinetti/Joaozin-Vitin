@@ -22,7 +22,7 @@ public class CrudConsole {
      */
     public static void main(String[] args) {
         Config.getInstance().setDatabase(TipoRepositorio.TEXTO);
-        estadoConsole = EnumEstado.Inicio.getEstadoMaquina();;
+        estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
         Boolean saida = false;
         while (!saida){
             saida = estadoConsole.Executa();

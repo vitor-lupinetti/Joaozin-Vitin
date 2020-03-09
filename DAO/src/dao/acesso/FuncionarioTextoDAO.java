@@ -15,6 +15,8 @@ import dao.DAO;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,7 +69,14 @@ public class FuncionarioTextoDAO extends DAO {
 
     @Override
     public Entidade seleciona(Entidade entidade, EntidadesDisponiveis enumEntidade) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Funcionario entidadeRetorno = null;
+           try {
+                entidadeRetorno = leitor("funcionario.txt", entidade);
+           } catch (IOException ex) {
+               Logger.getLogger(FuncionarioTextoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           return entidadeRetorno;
     }
 
     @Override

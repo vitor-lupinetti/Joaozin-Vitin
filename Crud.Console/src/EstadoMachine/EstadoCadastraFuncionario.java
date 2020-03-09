@@ -25,13 +25,8 @@ public class EstadoCadastraFuncionario extends EstadoMachine{
         System.out.println("Digite a senha: ");
         func.setSenha(scan.nextLine());
         System.out.println("Digite 0 para vendedor ou 1 para gerente: ");
-        String acesso = scan.nextLine();
-        if(acesso.equals("0"))
-        {
-            func.setAcesso(0);
-        }
-        else
-            func.setAcesso(1);
+        func.setAcesso(scan.nextLine());
+        
         
         CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
         return false;        
