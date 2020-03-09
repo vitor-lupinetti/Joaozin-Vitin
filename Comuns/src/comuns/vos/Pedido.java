@@ -12,64 +12,51 @@ import comuns.crud.basis.Entidade;
  */
 public class Pedido extends Entidade {
     
-    private Calendar dataPedido;
-    private int clienteId;
-    private int vendedorId;
-    private int produtoId;
+    
+    private String clienteNome;
+    private String vendedor;
+    private String produto;
 
-    /**
-     * @return the dataPedido
-     */
-    public Calendar getDataPedido() {
-        return dataPedido;
-    }
-
-    /**
-     * @param dataPedido the dataPedido to set
-     */
-    public void setDataPedido(Calendar dataPedido) {
-        this.dataPedido = dataPedido;
-    }
-
+   
     /**
      * @return the clienteId
      */
-    public int getClienteId() {
-        return clienteId;
+    public String getClienteNome() {
+        return clienteNome;
     }
 
     /**
      * @param clienteId the clienteId to set
      */
-    public void setClienteId(int clienteId) {
-        this.clienteId = clienteId;
+    public void setClienteNome(String clienteNome) {
+        this.clienteNome = clienteNome;
     }
 
     /**
      * @return the vendedorId
      */
-    public int getVendedorId() {
-        return vendedorId;
+    public String getVendedor() {
+        return vendedor;
     }
 
     /**
      * @param vendedorId the vendedorId to set
      */
-    public void setVendedorId(int vendedorId) {
-        this.vendedorId = vendedorId;
+    public void setVendedor(String vendedorId) {
+        this.vendedor = vendedorId;
     }
 
     /**
      * @return the produtoId
      */
-    public int getProdutoId() {
-        return produtoId;
+    public String getProduto() {
+        return produto;
     }
 
     /**
      * @param produtoId the produtoId to set
      */
-    public void setProdutoId(int produtoId) {
-        this.produtoId = produtoId;
+    public void setProduto(String produtoId) {
+        this.produto = produtoId;
     }
 }
