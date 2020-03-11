@@ -24,7 +24,8 @@ public class Acesso {
         Funcionario acesso = new Funcionario();
         acesso.setUsername(login);
         acesso.setSenha(senha);
-        Funcionario funcionario = (Funcionario)repositorio.seleciona(acesso, EntidadesDisponiveis.FUNCIONARIO);
+        Funcionario funcionario = new Funcionario();
+        funcionario = (Funcionario)repositorio.seleciona(acesso, EntidadesDisponiveis.FUNCIONARIO);
         if (funcionario != null)
         {
             valido = validaSenha(funcionario.getSenha(), senha);

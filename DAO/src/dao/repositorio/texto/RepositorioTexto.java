@@ -51,7 +51,7 @@ public class RepositorioTexto extends Repositorio {
         } catch (SQLException ex) {
             Logger.getLogger(RepositorioTexto.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return entidade;
+        return retorno;
     }
 
     

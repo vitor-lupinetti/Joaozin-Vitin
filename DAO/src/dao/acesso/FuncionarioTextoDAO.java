@@ -37,7 +37,16 @@ public class FuncionarioTextoDAO extends DAO {
         Funcionario retorno = null;
         BufferedReader buffRead = new BufferedReader(new FileReader(path));
         String linha = "";
-        vetor = linha.split("|");
+        
+        while (true) {
+            if (linha != null) {
+                System.out.println(linha);
+ 
+            } else
+                break;
+            linha = buffRead.readLine();
+            
+        vetor = linha.split(";");
        
         if(vetor[1].equals(f.getUsername()))
         {
@@ -48,14 +57,6 @@ public class FuncionarioTextoDAO extends DAO {
             retorno.setAcesso(vetor[3]);
             return retorno;
         }
-        
-        while (true) {
-            if (linha != null) {
-                System.out.println(linha);
- 
-            } else
-                break;
-            linha = buffRead.readLine();
         }
         buffRead.close();
         return retorno;
@@ -69,9 +70,10 @@ public class FuncionarioTextoDAO extends DAO {
 
     @Override
     public Entidade seleciona(Entidade entidade, EntidadesDisponiveis enumEntidade) throws SQLException {
-        Funcionario entidadeRetorno = null;
+        Funcionario entidadeRetorno = new Funcionario();
+        String path = "/Users/vitorlupinetti/Desktop/Vitor/lp2/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
            try {
-                entidadeRetorno = leitor("funcionario.txt", entidade);
+                entidadeRetorno = leitor(path, entidade);
            } catch (IOException ex) {
                Logger.getLogger(FuncionarioTextoDAO.class.getName()).log(Level.SEVERE, null, ex);
            }
