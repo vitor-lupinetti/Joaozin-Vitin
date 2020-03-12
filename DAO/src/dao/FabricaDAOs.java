@@ -7,6 +7,7 @@ package dao;
 import comuns.enums.EntidadesDisponiveis;
 import comuns.enums.TipoRepositorio;
 import dao.acesso.FuncionarioTextoDAO;
+import dao.acesso.ProdutoTextoDAO;
 /**
  *
  * @author vitorlupinetti
@@ -24,12 +25,15 @@ public class FabricaDAOs {
     }
 
     private static DAO montaDAOTexto(EntidadesDisponiveis enumEntidade) {
-        DAO retorno;
+        DAO retorno = null;
         switch (enumEntidade)
         {
             case FUNCIONARIO:
                 retorno = new FuncionarioTextoDAO();
-                break;            
+                break;  
+            case PRODUTO:
+                retorno = new ProdutoTextoDAO();
+                break;  
             default:
                 retorno = null;
                 break;

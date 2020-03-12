@@ -12,7 +12,7 @@ import comuns.enums.EntidadesDisponiveis;
  */
 public abstract class Repositorio {
     public abstract Entidade seleciona(Entidade entidade, EntidadesDisponiveis tipoEntidade);
-    public abstract Entidade insere(Entidade entidade, EntidadesDisponiveis tipoEntidade);
+    public abstract void insere(Entidade entidade, EntidadesDisponiveis tipoEntidade);
     public abstract Entidade atualiza(Entidade entidade, EntidadesDisponiveis tipoEntidade);
     public abstract Entidade deleta(Entidade entidade, EntidadesDisponiveis tipoEntidade);
 }

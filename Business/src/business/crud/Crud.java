@@ -13,11 +13,9 @@ import dao.repositorio.basis.Repositorio;
  * @author vitorlupinetti
  */
 public class Crud {
-    public Entidade Insere(Entidade E, EntidadesDisponiveis enumEntidade){
+    public void Insere(Entidade E, EntidadesDisponiveis enumEntidade){
         Repositorio repositorio = FabricaRepositorio.Fabrica(); 
-        Entidade retorno = repositorio.insere(E, enumEntidade);
-        
-        return retorno;
+        repositorio.insere(E, enumEntidade);
     }
     public Entidade Deleta(Entidade E, EntidadesDisponiveis enumEntidade){
        Repositorio repositorio = FabricaRepositorio.Fabrica(); 

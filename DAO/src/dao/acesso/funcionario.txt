@@ -1,1 +1,2 @@
 Vitor;vlupine;abc;1
+joao;joaofelipe;abc;0

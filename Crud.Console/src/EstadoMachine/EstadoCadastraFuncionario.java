@@ -7,6 +7,9 @@ package EstadoMachine;
 import comuns.vos.Funcionario;
 import crud.console.CrudConsole;
 import java.util.Scanner;
+import business.crud.Crud;
+import comuns.enums.EntidadesDisponiveis;
+import comuns.vos.Funcionario;
 /**
  *
  * @author 082170017
@@ -17,6 +20,7 @@ public class EstadoCadastraFuncionario extends EstadoMachine{
     @Override
     public boolean Executa() {
         Funcionario func = new Funcionario();
+        Crud crud = new Crud();
         
         System.out.println("Digite o nome do funcionario: ");
         func.setNome(scan.nextLine());
@@ -26,7 +30,7 @@ public class EstadoCadastraFuncionario extends EstadoMachine{
         func.setSenha(scan.nextLine());
         System.out.println("Digite 0 para vendedor ou 1 para gerente: ");
         func.setAcesso(scan.nextLine());
-        
+        crud.Insere(func, EntidadesDisponiveis.FUNCIONARIO);
         
         CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
         return false;        

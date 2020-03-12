@@ -13,8 +13,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import comuns.vos.Funcionario;
 import dao.DAO;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,33 +42,50 @@ public class FuncionarioTextoDAO extends DAO {
         String linha = "";
         
         while (true) {
-            if (linha != null) {
-                System.out.println(linha);
- 
-            } else
-                break;
+
             linha = buffRead.readLine();
             
-        vetor = linha.split(";");
-       
-        if(vetor[1].equals(f.getUsername()))
-        {
-            retorno = new Funcionario();
-            retorno.setNome(vetor[0]);
-            retorno.setUsername(vetor[1]);
-            retorno.setSenha(vetor[2]);
-            retorno.setAcesso(vetor[3]);
-            return retorno;
-        }
+            if(linha == null)
+                break;
+            
+            
+            vetor = linha.split(";");
+
+            if(vetor[1].equals(f.getUsername()))
+            {
+                retorno = new Funcionario();
+                retorno.setNome(vetor[0]);
+                retorno.setUsername(vetor[1]);
+                retorno.setSenha(vetor[2]);
+                retorno.setAcesso(vetor[3]);
+                return retorno;
+            }
         }
         buffRead.close();
         return retorno;
     }
+    
+     public static void escritor(String path, Entidade entidade) throws IOException {
+        BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path,true));
+        String linha = "";
+        Funcionario f = (Funcionario)entidade;
+        linha = f.getNome() + ";" + f.getUsername() + ";" + f.getSenha() + ";" + f.getAcesso();
+
+        buffWrite.append(linha + "\n");
+        buffWrite.close();
+        
+        System.out.println("Funcionario cadastrado.");
+    }
  
 
     @Override
-    public Entidade insere(Entidade entidade, EntidadesDisponiveis enumEntidade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void insere(Entidade entidade, EntidadesDisponiveis enumEntidade) {
+        String path = "/Users/vitorlupinetti/Desktop/Vitor/lp2/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
+        try {
+             escritor(path, entidade);
+           } catch (IOException ex) {
+               Logger.getLogger(FuncionarioTextoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           }
     }
 
     @Override

@@ -21,13 +21,11 @@ import java.util.logging.Logger;
 public class RepositorioTexto extends Repositorio {
 
     @Override
-    public Entidade insere(Entidade entidade, EntidadesDisponiveis tipoEntidade) {
+    public void insere(Entidade entidade, EntidadesDisponiveis tipoEntidade) {
         DAO dao = FabricaDAOs.Fabrica(tipoEntidade, TipoRepositorio.TEXTO);
         
-        Entidade retorno = null;
-        retorno = dao.insere(entidade, tipoEntidade);
+        dao.insere(entidade, tipoEntidade);
         
-        return retorno;
     }
 
     @Override

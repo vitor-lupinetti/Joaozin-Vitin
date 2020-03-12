@@ -14,8 +14,8 @@ public class EstadoInicio extends EstadoMachine{
     @Override
     public boolean Executa() {
         boolean sair = false;
-        System.out.println("**Sistema de Cadastro Geral***\nIndique a opção desejada!\nIndique a opção desejada!");
-        System.out.println("\n1 --> Login\n2 --> Sair");
+        System.out.println("Sistema de vendas de produtos\nEscolha uma opção abaixo:");
+        System.out.println("\n1: Login\n2: Sair");
         Scanner scan = new Scanner(System.in);
         int opcao = scan.nextInt();
         switch (opcao)

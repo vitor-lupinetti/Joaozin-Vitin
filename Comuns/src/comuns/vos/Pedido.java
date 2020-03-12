@@ -15,7 +15,8 @@ public class Pedido extends Entidade {
     
     private String clienteNome;
     private String vendedor;
-    private String produto;
+    private String[] produtos;
+    private int qtdProdutos;
 
    
     /**
@@ -46,17 +47,32 @@ public class Pedido extends Entidade {
         this.vendedor = vendedorId;
     }
 
+
     /**
-     * @return the produtoId
+     * @return the qtdProdutos
      */
-    public String getProduto() {
-        return produto;
+    public int getQtdProdutos() {
+        return qtdProdutos;
     }
 
     /**
-     * @param produtoId the produtoId to set
+     * @param qtdProdutos the qtdProdutos to set
      */
-    public void setProduto(String produtoId) {
-        this.produto = produtoId;
+    public void setQtdProdutos(int qtdProdutos) {
+        this.qtdProdutos = qtdProdutos;
+    }
+
+    /**
+     * @return the produtos
+     */
+    public String[] getProdutos() {
+        return produtos;
+    }
+
+    /**
+     * @param produtos the produtos to set
+     */
+    public void setProdutos(String[] produtos) {
+        this.produtos = produtos;
     }
 }

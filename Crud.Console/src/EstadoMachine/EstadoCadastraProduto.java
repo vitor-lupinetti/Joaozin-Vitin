@@ -8,7 +8,8 @@ package EstadoMachine;
 import comuns.vos.Produto;
 import crud.console.CrudConsole;
 import java.util.Scanner;
-
+import business.crud.Crud;
+import comuns.enums.EntidadesDisponiveis;
 /**
  *
  * @author Administrador
@@ -20,11 +21,14 @@ public class EstadoCadastraProduto extends EstadoMachine{
         Produto produto = new Produto();
         
         System.out.println("Digite o nome do produto: ");
-        produto.setCategoria(scan.nextLine());
+        produto.setDescricao(scan.nextLine());
         System.out.println("Digite a categoria: ");
         produto.setCategoria(scan.nextLine());
         System.out.println("Digite o valor: ");
         produto.setValor(Double.parseDouble(scan.nextLine()));
+        
+        Crud crud = new Crud();
+        crud.Insere(produto, EntidadesDisponiveis.PRODUTO);
         CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
         return false;
     }

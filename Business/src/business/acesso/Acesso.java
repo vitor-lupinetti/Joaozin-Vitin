@@ -30,6 +30,10 @@ public class Acesso {
         {
             valido = validaSenha(funcionario.getSenha(), senha);
         }
+        else{
+            
+            return null;
+        }
         if(valido)
             return funcionario;
         else
