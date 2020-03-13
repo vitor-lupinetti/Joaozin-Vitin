@@ -8,6 +8,7 @@ package EstadoMachine;
 import crud.console.CrudConsole;
 import java.util.Scanner;
 import business.acesso.Acesso;
+import business.config.Config;
 import comuns.vos.Funcionario;
  /*
  * @author joao-
@@ -28,7 +29,7 @@ public class EstadoLogin extends EstadoMachine{
         Acesso acesso = new Acesso(); 
         funcionario = acesso.validaFuncionario(login, senha);
         if(funcionario != null){
-            Config ;
+            Config.getInstance().setAcessoFuncionario(funcionario.getAcesso()); ;
             if (funcionario.getAcesso().equals("1"))
                 CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
                 

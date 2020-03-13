@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package EstadoMachine;
-import comuns.vos.Funcionario;
+import business.config.Config;
 import crud.console.CrudConsole;
 import java.util.Scanner;
 import business.crud.Crud;
@@ -20,19 +20,28 @@ public class EstadoCadastraFuncionario extends EstadoMachine{
     @Override
     public boolean Executa() {
         Funcionario func = new Funcionario();
-        Crud crud = new Crud();
+        
         
         System.out.println("Digite o nome do funcionario: ");
-        func.setNome(scan.nextLine());
+        func.setNome(scan.nextLine().trim());
         System.out.println("Digite o username: ");
-        func.setUsername(scan.nextLine());
+        func.setUsername(scan.nextLine().trim());
         System.out.println("Digite a senha: ");
-        func.setSenha(scan.nextLine());
+        func.setSenha(scan.nextLine().trim());
         System.out.println("Digite 0 para vendedor ou 1 para gerente: ");
-        func.setAcesso(scan.nextLine());
-        crud.Insere(func, EntidadesDisponiveis.FUNCIONARIO);
+        func.setAcesso(scan.nextLine().trim());
         
-        CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+        Crud crud = new Crud();
+        crud.Insere(func, EntidadesDisponiveis.FUNCIONARIO);
+                
+        if (Config.getInstance().getAcessoFuncionario().equals("1")){
+            CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+        }
+        else
+        {
+            CrudConsole.estadoConsole = EnumEstado.MenuVendedor.getEstadoMaquina();
+        }
+
         return false;        
     }
     
