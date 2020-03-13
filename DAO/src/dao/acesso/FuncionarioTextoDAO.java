@@ -115,5 +115,33 @@ public class FuncionarioTextoDAO extends DAO {
     public Entidade atualiza(Entidade entidade, EntidadesDisponiveis enumEntidade) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    @Override
+    public void lista(EntidadesDisponiveis enumEntidade){
+    	String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
+    	String vetor [];
+        Funcionario f = (Funcionario)entidade;
+        Funcionario retorno = null;
+        BufferedReader buffRead = new BufferedReader(new FileReader(path));
+        String linha = "";
+        
+        while (true) {
+
+            linha = buffRead.readLine();
+            
+            if(linha == null)
+                break;
+                        
+            vetor = linha.split(";");
+            
+            System.out.println("Nome: " + vetor[0] +" UserName: " + vetor[1]);
+            if(retorno.setAcesso(vetor[3].equals("1")));
+            	System.out.println(" Gerente")
+            else
+            	System.out.println(" Vendedor")
+            }
+        }
+        buffRead.close();
     
+    }
+    }
 }

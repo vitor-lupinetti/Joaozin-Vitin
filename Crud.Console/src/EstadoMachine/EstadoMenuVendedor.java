@@ -20,9 +20,9 @@ public class EstadoMenuVendedor extends EstadoMachine{
             System.out.println("\n ---Menu Principal---");
             Scanner scan = new Scanner(System.in);
             System.out.println("0 - Sair");        
-            System.out.println("1 - Cadastrar Pedido \n2 - Listar");
-            System.out.println("3 - Cadastrar Produto \n4 - Listar");
-            System.out.println("5 - Cadastrar Cliente \n6 - Listar");
+            System.out.println("1 - Cadastrar Pedido \n2 - Listar Pedido");
+            System.out.println("3 - Cadastrar Produto \n4 - Listar Produto");
+            System.out.println("5 - Cadastrar Cliente \n6 - Listar Cliente");
 
             int opcao = scan.nextInt();
             switch (opcao)

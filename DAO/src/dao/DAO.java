@@ -25,6 +25,7 @@ public abstract class DAO <E extends Entidade> {
     public abstract void insere(Entidade entidade, EntidadesDisponiveis enumEntidade);
     public abstract E atualiza(Entidade entidade, EntidadesDisponiveis enumEntidade);
     public abstract void deleta(Entidade entidade, EntidadesDisponiveis enumEntidade);
+    public abstract void lista(Entidade entidade, EntidadesDisponiveis enumEntidade);
     
     
     protected E getInstanceOfE()

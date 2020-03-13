@@ -51,7 +51,13 @@ public class RepositorioTexto extends Repositorio {
         }
         return retorno;
     }
-
+    
+    @Override
+    public void lista(EntidadesDisponiveis tipoEntidades){
+    	DAO dao = FabricaDAOs.Fabrica(tipoEntidade, TipoRepositorio.TEXTO);
+    	dao.lista(tipoEntidades);
+    	
+    }
     
     
 }

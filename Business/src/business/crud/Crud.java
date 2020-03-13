@@ -26,8 +26,16 @@ public class Crud {
     public Entidade Atualiza(Entidade E, EntidadesDisponiveis enumEntidade){
       Repositorio repositorio = FabricaRepositorio.Fabrica(); 
       Entidade retorno = repositorio.atualiza(E, enumEntidade);
-
+      
       return retorno;
     }
-    
+    public void Listar(Entidade E, EntidadesDisponiveis enumEntidade){
+    	Repositorio repositorio = FabricaRepositorio.Fabrica();
+    	repositorio.insere(E, enumEntidade);
+    	
+    	return retorno;
+    }
+    public void lista(EntidadesDisponiveis enumEntidade)
+    	Repositorio repositorio = FabricaRepositorio.Fabrica();
+    	repositorio.
 }

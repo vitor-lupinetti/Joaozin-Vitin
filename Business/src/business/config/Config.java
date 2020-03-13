@@ -49,8 +49,8 @@ public class Config {
     /**
      * @param acessoFuncionario the acessoFuncionario to set
      */
-    public void setUsuarioLogado(Funcionario l) {
-        this.usuarioLogado = l;
+    public void setUsuarioLogado(Funcionario f) {
+        this.usuarioLogado = f;
     }
     
 }

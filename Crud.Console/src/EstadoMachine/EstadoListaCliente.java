@@ -20,7 +20,7 @@ public class EstadoListaCliente extends EstadoMachine{
         
         
         try{           
-            
+        	String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
             
             
             System.out.println("0 - Voltar ao menu\n1 - Cadastrar\n2 - Alterar\n3 - Excluir");        
