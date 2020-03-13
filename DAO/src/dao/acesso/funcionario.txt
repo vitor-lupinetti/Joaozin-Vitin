@@ -1,2 +1,3 @@
 Vitor;vlupine;abc;1
 joao;joaofelipe;abc;0
+Administrador;admin;admin;1

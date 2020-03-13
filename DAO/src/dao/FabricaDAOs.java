@@ -6,7 +6,9 @@
 package dao;
 import comuns.enums.EntidadesDisponiveis;
 import comuns.enums.TipoRepositorio;
+import dao.acesso.ClienteTextoDAO;
 import dao.acesso.FuncionarioTextoDAO;
+import dao.acesso.PedidoTextoDAO;
 import dao.acesso.ProdutoTextoDAO;
 /**
  *
@@ -34,6 +36,12 @@ public class FabricaDAOs {
             case PRODUTO:
                 retorno = new ProdutoTextoDAO();
                 break;  
+            case PEDIDO:
+                retorno = new PedidoTextoDAO();
+                break;  
+            case CLIENTE:
+                retorno = new ClienteTextoDAO();
+                break;
             default:
                 retorno = null;
                 break;

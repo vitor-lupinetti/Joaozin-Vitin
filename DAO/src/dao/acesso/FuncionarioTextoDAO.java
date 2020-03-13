@@ -80,7 +80,8 @@ public class FuncionarioTextoDAO extends DAO {
 
     @Override
     public void insere(Entidade entidade, EntidadesDisponiveis enumEntidade) {
-        String path = "/Users/vitorlupinetti/Desktop/Vitor/lp2/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
+        //String path = "/Users/vitorlupinetti/Desktop/Vitor/lp2/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
+        String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
         try {
              escritor(path, entidade);
            } catch (IOException ex) {
@@ -91,7 +92,7 @@ public class FuncionarioTextoDAO extends DAO {
     @Override
     public Entidade seleciona(Entidade entidade, EntidadesDisponiveis enumEntidade) throws SQLException {
         Funcionario entidadeRetorno = new Funcionario();
-        String path = "/Users/vitorlupinetti/Desktop/Vitor/lp2/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
+        String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
            try {
                 entidadeRetorno = leitor(path, entidade);
            } catch (IOException ex) {

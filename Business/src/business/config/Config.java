@@ -16,23 +16,40 @@ public class Config {
  
     private Config() {
     }
- 
+    private String acessoFuncionario;
+    
+    
     public static synchronized Config getInstance() {
         if (uniqueInstance == null)
             uniqueInstance = new Config();
  
         return uniqueInstance;
     }
+     
     
     private TipoRepositorio tipoRepositorio; 
 
     public TipoRepositorio getTipoRepositorio() {
         return tipoRepositorio;
     }
-
+    
     
     public void setDatabase(TipoRepositorio tipoRepositorio) {
         this.tipoRepositorio = tipoRepositorio;
+    }
+
+    /**
+     * @return the acessoFuncionario
+     */
+    public String getAcessoFuncionario() {
+        return acessoFuncionario;
+    }
+
+    /**
+     * @param acessoFuncionario the acessoFuncionario to set
+     */
+    public void setAcessoFuncionario(String acessoFuncionario) {
+        this.acessoFuncionario = acessoFuncionario;
     }
     
 }

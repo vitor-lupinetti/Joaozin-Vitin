@@ -5,6 +5,8 @@
  */
 package EstadoMachine;
 
+import business.crud.Crud;
+import comuns.enums.EntidadesDisponiveis;
 import java.util.Scanner;
 import comuns.vos.Cliente;
 import crud.console.CrudConsole;
@@ -19,12 +21,17 @@ public class EstadoCadastraCliente extends EstadoMachine{
     public boolean Executa() {
         Cliente cliente = new Cliente();
         
-        System.out.println("Digite o nome do funcionario: ");
-        cliente.setNome(scan.nextLine());
+        System.out.println("Digite o nome do cliente: ");
+        cliente.setNome(scan.nextLine().trim());
         System.out.println("Digite o Telefone: ");
         cliente.setTelefone(scan.nextInt());
+        Scanner scan = new Scanner(System.in);
         System.out.println("Digite o Endereço: ");
-        cliente.setEndereço(scan.nextLine());
+        cliente.setEndereço(scan.nextLine().trim());
+        Crud crud = new Crud();
+        crud.Insere(cliente, EntidadesDisponiveis.CLIENTE);
+        
+        
         CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
         return false;
     }

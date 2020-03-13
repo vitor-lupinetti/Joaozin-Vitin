@@ -65,8 +65,14 @@ public class Pedido extends Entidade {
     /**
      * @return the produtos
      */
-    public String[] getProdutos() {
-        return produtos;
+    public String getProdutos() {
+        String retorno ="";
+        int tamanho = produtos.length;
+                for (int i = 0; i < tamanho; i++) {
+                    retorno = retorno + produtos[i] + ";";
+                }
+        
+        return retorno;
     }
 
     /**

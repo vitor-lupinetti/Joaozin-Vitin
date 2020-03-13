@@ -7,11 +7,9 @@ package dao.acesso;
 
 import comuns.crud.basis.Entidade;
 import comuns.enums.EntidadesDisponiveis;
-import comuns.vos.Funcionario;
 import dao.DAO;
 import java.sql.SQLException;
-import comuns.vos.Produto;
-import static dao.acesso.FuncionarioTextoDAO.escritor;
+import comuns.vos.Cliente;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,38 +18,38 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author vitorlupinetti
+ * @author 082170017
  */
-public class ProdutoTextoDAO extends DAO {
-
-    public ProdutoTextoDAO(){
-        super(Produto.class);
-    }
+public class ClienteTextoDAO extends DAO{
     
+    public ClienteTextoDAO(){
+        super(Cliente.class);
+    }
+            
     public static void escritor(String path, Entidade entidade) throws IOException {
         BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path,true));
         String linha = "";
-        Produto p = (Produto)entidade;
-        linha = p.getCategoria() + ";" + p.getDescricao() + ";" + p.getValor() + ";";
+        Cliente c = (Cliente)entidade;
+        linha = c.getNome() + ";" + c.getEndereço()+ ";" + c.getTelefone();
 
         buffWrite.append(linha + "\n");
         buffWrite.close();
         
-        System.out.println("Produto cadastrado.");
+        System.out.println("Cliente cadastrado.");
     }
+    
     @Override
     public Entidade seleciona(Entidade entidade, EntidadesDisponiveis enumEntidade) throws SQLException {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void insere(Entidade entidade, EntidadesDisponiveis enumEntidade) {
-        
-        String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/produto.txt";
+        String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/cliente.txt";
         try {
              escritor(path, entidade);
            } catch (IOException ex) {
-               Logger.getLogger(FuncionarioTextoDAO.class.getName()).log(Level.SEVERE, null, ex);
+               Logger.getLogger(ClienteTextoDAO.class.getName()).log(Level.SEVERE, null, ex);
            }   
     }
 

@@ -5,6 +5,8 @@
  */
 package EstadoMachine;
 
+import business.crud.Crud;
+import comuns.enums.EntidadesDisponiveis;
 import comuns.vos.Pedido;
 import crud.console.CrudConsole;
 import java.util.Scanner;
@@ -26,11 +28,16 @@ public class EstadoCadastraPedido extends EstadoMachine{
         
         for (int i = 0; i < pedido.getQtdProdutos(); i++) {
             System.out.println("Digite o Nome do produto" + i + ":");
+            scan = new Scanner(System.in);
             produtos[i] = scan.nextLine();
         }
         pedido.setProdutos(produtos);
         System.out.println("Digite 0 para vendedor ou 1 para gerente: ");
         pedido.setVendedor(scan.nextLine());
+        
+        Crud crud = new Crud();
+        
+        crud.Insere(pedido, EntidadesDisponiveis.PEDIDO);
         
         if("1".equals(pedido.getVendedor()))
             CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();

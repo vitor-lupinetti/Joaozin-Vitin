@@ -28,8 +28,10 @@ public class EstadoLogin extends EstadoMachine{
         Acesso acesso = new Acesso(); 
         funcionario = acesso.validaFuncionario(login, senha);
         if(funcionario != null){
+            Config ;
             if (funcionario.getAcesso().equals("1"))
                 CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+                
             else
             {
                 CrudConsole.estadoConsole = EnumEstado.MenuVendedor.getEstadoMaquina();
