@@ -46,6 +46,8 @@ public class ClienteTextoDAO extends DAO{
     @Override
     public void insere(Entidade entidade, EntidadesDisponiveis enumEntidade) {
         String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/cliente.txt";
+        //String path = "/Users/vitorlupinetti/Desktop/Vitor/lp2/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
+     
         try {
              escritor(path, entidade);
            } catch (IOException ex) {

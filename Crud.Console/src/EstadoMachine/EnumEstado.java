@@ -14,6 +14,7 @@ public enum EnumEstado {
     Login (new EstadoLogin()),
     MenuGerente (new EstadoMenuGerente()),
     MenuVendedor(new EstadoMenuVendedor()),
+    MenuFuncionario(new EstadoMenuFuncionario()),
     CadastroFuncionario (new EstadoCadastraFuncionario()),
     CadastraPedido (new EstadoCadastraPedido()),
     CadastraProduto (new EstadoCadastraProduto()),

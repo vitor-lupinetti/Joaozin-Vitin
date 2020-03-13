@@ -5,6 +5,7 @@
  */
 package business.acesso;
 import business.basis.FabricaRepositorio;
+import business.config.Config;
 import comuns.vos.Funcionario;
 import comuns.enums.EntidadesDisponiveis;
 import dao.repositorio.basis.Repositorio;
@@ -39,4 +40,6 @@ public class Acesso {
         else
             return null;
     }
+    
+   
 }

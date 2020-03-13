@@ -28,22 +28,22 @@ public class EstadoListaCliente extends EstadoMachine{
             switch (opcao)
             {
                 case 0:
-                    CrudConsole.AcessoProxMenu();
+                    CrudConsole.estadoConsole = EnumEstado.MenuFuncionario.getEstadoMaquina();
                     break;            
                 case 1:
                     CrudConsole.estadoConsole = EnumEstado.CadastraCliente.getEstadoMaquina();
                     break;
                 case 2:
-                    CrudConsole.AcessoProxMenu();
+                    CrudConsole.estadoConsole = EnumEstado.MenuFuncionario.getEstadoMaquina();
                     break;
                 case 3:
-                    CrudConsole.AcessoProxMenu();
+                    CrudConsole.estadoConsole = EnumEstado.MenuFuncionario.getEstadoMaquina();
                     break;
             }            
         }
         catch(Exception e){
             System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
-            CrudConsole.AcessoProxMenu();
+            CrudConsole.estadoConsole = EnumEstado.MenuFuncionario.getEstadoMaquina();
         } 
        return false;
     }

@@ -31,7 +31,7 @@ public class EstadoCadastraProduto extends EstadoMachine{
             Crud crud = new Crud();
             crud.Insere(produto, EntidadesDisponiveis.PRODUTO);
 
-            CrudConsole.AcessoProxMenu();
+            CrudConsole.estadoConsole = EnumEstado.MenuFuncionario.getEstadoMaquina();
         }
         catch(Exception e){
             System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");

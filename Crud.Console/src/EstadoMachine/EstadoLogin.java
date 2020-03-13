@@ -31,7 +31,7 @@ public class EstadoLogin extends EstadoMachine{
             funcionario = acesso.validaFuncionario(login, senha);
             if(funcionario != null){
                 Config.getInstance().setUsuarioLogado(funcionario);
-                CrudConsole.AcessoProxMenu();
+                CrudConsole.estadoConsole = EnumEstado.MenuFuncionario.getEstadoMaquina();
             }
             else {
                     System.out.println("Usuario ou senha incorretos!");
@@ -39,7 +39,7 @@ public class EstadoLogin extends EstadoMachine{
         }
         catch(Exception e){
             System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
-            CrudConsole.estadoConsole = EnumEstado.Login.getEstadoMaquina();;
+            CrudConsole.estadoConsole = EnumEstado.Login.getEstadoMaquina();
         } 
         return sair;
     }
