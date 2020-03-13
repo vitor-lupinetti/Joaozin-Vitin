@@ -19,22 +19,28 @@ public class EstadoLogin extends EstadoMachine{
     public boolean Executa() {
         boolean sair = false;
         Funcionario funcionario;
-        Scanner scan = new Scanner(System.in);
-        System.out.println("\n**** LOGIN ****");
-        System.out.println("Digite seu usuário:");
-        String login = scan.nextLine().trim();
-        System.out.println("Digite sua senha:");
-        String senha = scan.nextLine().trim();
-        // TODO - Validação de senha
-        Acesso acesso = new Acesso(); 
-        funcionario = acesso.validaFuncionario(login, senha);
-        if(funcionario != null){
-            Config.getInstance().setUsuarioLogado(funcionario);
-            CrudConsole.AcessoProxMenu();
+        try{
+            Scanner scan = new Scanner(System.in);
+            System.out.println("\n**** LOGIN ****");
+            System.out.println("Digite seu usuário:");
+            String login = scan.nextLine().trim();
+            System.out.println("Digite sua senha:");
+            String senha = scan.nextLine().trim();
+            // TODO - Validação de senha
+            Acesso acesso = new Acesso(); 
+            funcionario = acesso.validaFuncionario(login, senha);
+            if(funcionario != null){
+                Config.getInstance().setUsuarioLogado(funcionario);
+                CrudConsole.AcessoProxMenu();
+            }
+            else {
+                    System.out.println("Usuario ou senha incorretos!");
+                }
         }
-        else {
-                System.out.println("Dados inválidos!");
-            }        
+        catch(Exception e){
+            System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
+            CrudConsole.estadoConsole = EnumEstado.Login.getEstadoMaquina();;
+        } 
         return sair;
     }
 }

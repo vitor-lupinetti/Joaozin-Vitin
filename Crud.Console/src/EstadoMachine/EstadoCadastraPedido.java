@@ -21,25 +21,30 @@ public class EstadoCadastraPedido extends EstadoMachine{
     @Override
     public boolean Executa() {
         Pedido pedido = new Pedido();
-        System.out.println("Digite o nome do cliente da venda: ");
-        pedido.setClienteNome(scan.nextLine().trim());
-        System.out.println("Digite a quantidade de produtos da venda: ");
-        pedido.setQtdProdutos(scan.nextInt());
-        String[] produtos = new String[pedido.getQtdProdutos()];
-        
-        for (int i = 0; i < pedido.getQtdProdutos(); i++) {
-            System.out.println("Digite o Nome do produto " + i + " :");
-            scan = new Scanner(System.in);
-            produtos[i] = scan.nextLine().trim();
+        try{
+            System.out.println("Digite o nome do cliente da venda: ");
+            pedido.setClienteNome(scan.nextLine().trim());
+            System.out.println("Digite a quantidade de produtos da venda: ");
+            pedido.setQtdProdutos(scan.nextInt());
+            String[] produtos = new String[pedido.getQtdProdutos()];
+
+            for (int i = 0; i < pedido.getQtdProdutos(); i++) {
+                System.out.println("Digite o Nome do produto " + i + " :");
+                scan = new Scanner(System.in);
+                produtos[i] = scan.nextLine().trim();
+            }
+            pedido.setProdutos(produtos);
+            pedido.setVendedor(Config.getInstance().getUsuarioLogado().getNome());
+
+            Crud crud = new Crud();        
+            crud.Insere(pedido, EntidadesDisponiveis.PEDIDO);
+
+            CrudConsole.AcessoProxMenu();
         }
-        pedido.setProdutos(produtos);
-        pedido.setVendedor(Config.getInstance().getUsuarioLogado().getNome());
-        
-        Crud crud = new Crud();        
-        crud.Insere(pedido, EntidadesDisponiveis.PEDIDO);
-        
-        CrudConsole.AcessoProxMenu();
-        
+        catch(Exception e){
+            System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
+            CrudConsole.estadoConsole = EnumEstado.CadastraPedido.getEstadoMaquina();;
+        } 
         return false;
     }
 }

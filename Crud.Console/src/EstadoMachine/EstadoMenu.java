@@ -14,20 +14,27 @@ import java.util.Scanner;
 public class EstadoMenu extends EstadoMachine{
     @Override
     public boolean Executa() {
-        System.out.println(" Menu Principal");
-        Scanner scan = new Scanner(System.in);
-        System.out.println("0 - Sair");
-        System.out.println("1 - Login");
-        int opcao = scan.nextInt();
-        switch (opcao)
-        {
-            case 0:
-                CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
-                break;
-            case 1:
-                CrudConsole.estadoConsole = EnumEstado.Login.getEstadoMaquina();
-                break;
+        try
+            {
+            System.out.println(" Menu Principal");
+            Scanner scan = new Scanner(System.in);
+            System.out.println("0 - Sair");
+            System.out.println("1 - Login");
+            int opcao = scan.nextInt();
+            switch (opcao)
+            {
+                case 0:
+                    CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
+                    break;
+                case 1:
+                    CrudConsole.estadoConsole = EnumEstado.Login.getEstadoMaquina();
+                    break;
+            }
         }
+        catch(Exception e){
+            System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
+            CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();;
+        } 
         return false;
     }
 }

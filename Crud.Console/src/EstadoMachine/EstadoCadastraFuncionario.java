@@ -19,22 +19,26 @@ public class EstadoCadastraFuncionario extends EstadoMachine{
     @Override
     public boolean Executa() {
         Funcionario func = new Funcionario();
-        
-        
-        System.out.println("Digite o nome do funcionario: ");
-        func.setNome(scan.nextLine().trim());
-        System.out.println("Digite o username: ");
-        func.setUsername(scan.nextLine().trim());
-        System.out.println("Digite a senha: ");
-        func.setSenha(scan.nextLine().trim());
-        System.out.println("Digite 0 para vendedor ou 1 para gerente: ");
-        func.setAcesso(scan.nextLine().trim());
-        
-        Crud crud = new Crud();
-        crud.Insere(func, EntidadesDisponiveis.FUNCIONARIO);
-                
-        CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+        try
+        {
+            System.out.println("Digite o nome do funcionario: ");
+            func.setNome(scan.nextLine().trim());
+            System.out.println("Digite o username: ");
+            func.setUsername(scan.nextLine().trim());
+            System.out.println("Digite a senha: ");
+            func.setSenha(scan.nextLine().trim());
+            System.out.println("Digite 0 para vendedor ou 1 para gerente: ");
+            func.setAcesso(scan.nextLine().trim());
 
+            Crud crud = new Crud();
+            crud.Insere(func, EntidadesDisponiveis.FUNCIONARIO);
+
+            CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+        }
+        catch(Exception e){
+            System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
+            CrudConsole.estadoConsole = EnumEstado.CadastroFuncionario.getEstadoMaquina();;
+        } 
         return false;        
     }
     

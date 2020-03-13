@@ -1,4 +1,3 @@
-a;a;4.0;
 bebidas;cerveja;5.0;
 doces;bolacha;6.0;
 Doce;Picole;2.0;

@@ -20,20 +20,24 @@ public class EstadoCadastraCliente extends EstadoMachine{
     @Override
     public boolean Executa() {
         Cliente cliente = new Cliente();
-        
-        System.out.println("Digite o nome do cliente: ");
-        cliente.setNome(scan.nextLine().trim());
-        System.out.println("Digite o Telefone: ");
-        cliente.setTelefone(scan.nextInt());
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Digite o Endereço: ");
-        cliente.setEndereço(scan.nextLine().trim());
-        
-        Crud crud = new Crud();
-        crud.Insere(cliente, EntidadesDisponiveis.CLIENTE);
-        
-        CrudConsole.AcessoProxMenu();
-        
+        try{
+            System.out.println("Digite o nome do cliente: ");
+            cliente.setNome(scan.nextLine().trim());
+            System.out.println("Digite o Telefone: ");
+            cliente.setTelefone(scan.nextInt());
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Digite o Endereço: ");
+            cliente.setEndereço(scan.nextLine().trim());
+
+            Crud crud = new Crud();
+            crud.Insere(cliente, EntidadesDisponiveis.CLIENTE);
+
+            CrudConsole.AcessoProxMenu();
+        }
+        catch(Exception e){
+            System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
+            CrudConsole.estadoConsole = EnumEstado.CadastraCliente.getEstadoMaquina();;
+        } 
         return false;
     }
     

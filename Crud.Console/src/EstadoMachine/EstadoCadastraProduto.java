@@ -19,19 +19,24 @@ public class EstadoCadastraProduto extends EstadoMachine{
     @Override
     public boolean Executa() {
         Produto produto = new Produto();
-        
-        System.out.println("Digite o nome do produto: ");
-        produto.setDescricao(scan.nextLine().trim());
-        System.out.println("Digite a categoria: ");
-        produto.setCategoria(scan.nextLine().trim());
-        System.out.println("Digite o valor: ");
-        produto.setValor(Double.parseDouble(scan.nextLine().trim()));
-        
-        Crud crud = new Crud();
-        crud.Insere(produto, EntidadesDisponiveis.PRODUTO);
-        
-         CrudConsole.AcessoProxMenu();
-        
+        try
+        {
+            System.out.println("Digite o nome do produto: ");
+            produto.setDescricao(scan.nextLine().trim());
+            System.out.println("Digite a categoria: ");
+            produto.setCategoria(scan.nextLine().trim());
+            System.out.println("Digite o valor: ");
+            produto.setValor(Double.parseDouble(scan.nextLine().trim()));
+
+            Crud crud = new Crud();
+            crud.Insere(produto, EntidadesDisponiveis.PRODUTO);
+
+            CrudConsole.AcessoProxMenu();
+        }
+        catch(Exception e){
+            System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
+            CrudConsole.estadoConsole = EnumEstado.CadastraProduto.getEstadoMaquina();;
+        } 
         return false;
     }
 }
