@@ -20,26 +20,33 @@ public class EstadoMenuVendedor extends EstadoMachine{
             System.out.println("\n ---Menu Principal---");
             Scanner scan = new Scanner(System.in);
             System.out.println("0 - Sair");
-            System.out.println("1 - Cadastrar pedido");
-            System.out.println("2 - Cadastrar produto");
-            System.out.println("3 - Cadastrar cliente");
-
+            System.out.println("\n_Pedido_1 - Cadastrar\n2 - Listar");
+            System.out.println("\n_Produto_3 - Cadastrar\n4 - Listar");
+            System.out.println("\n_Cliente_5 - Cadastrar\n6 - Listar");
 
             int opcao = scan.nextInt();
             switch (opcao)
             {
                 case 0:
                     CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
-                    break;
-
+                    break;            
                 case 1:
                     CrudConsole.estadoConsole = EnumEstado.CadastraPedido.getEstadoMaquina();
                     break;
                 case 2:
-                    CrudConsole.estadoConsole = EnumEstado.CadastraProduto.getEstadoMaquina();
+                    CrudConsole.estadoConsole = EnumEstado.ListaPedido.getEstadoMaquina();
                     break;
                 case 3:
+                    CrudConsole.estadoConsole = EnumEstado.CadastraProduto.getEstadoMaquina();
+                    break;
+                case 4:
+                    CrudConsole.estadoConsole = EnumEstado.ListaProduto.getEstadoMaquina();
+                    break;
+                case 5:
                     CrudConsole.estadoConsole = EnumEstado.CadastraCliente.getEstadoMaquina();
+                    break;
+                case 6:
+                    CrudConsole.estadoConsole = EnumEstado.ListaCliente.getEstadoMaquina();
                     break;
             }
         }

@@ -13,11 +13,15 @@ public enum EnumEstado {
     Inicio (new EstadoInicio()),
     Login (new EstadoLogin()),
     MenuGerente (new EstadoMenuGerente()),
-     MenuVendedor(new EstadoMenuVendedor()),
+    MenuVendedor(new EstadoMenuVendedor()),
     CadastroFuncionario (new EstadoCadastraFuncionario()),
     CadastraPedido (new EstadoCadastraPedido()),
     CadastraProduto (new EstadoCadastraProduto()),
-    CadastraCliente (new EstadoCadastraCliente());
+    CadastraCliente (new EstadoCadastraCliente()),
+    ListaFuncionario (new EstadoListaFuncionario()),
+    ListaPedido (new EstadoListaPedido()),
+    ListaProduto (new EstadoListaProduto()),
+    ListaCliente (new EstadoListaCliente());
    
     
     

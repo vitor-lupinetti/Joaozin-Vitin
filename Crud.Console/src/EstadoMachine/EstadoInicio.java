@@ -15,7 +15,7 @@ public class EstadoInicio extends EstadoMachine{
     public boolean Executa() {
         boolean sair = false;
         try{            
-            System.out.println("Sistema de vendas de produtos\nEscolha uma opção abaixo:");
+            System.out.println("##SISTEMA DE VENDA DE PRODUTOS##\nEscolha uma opção abaixo:");
             System.out.println("\n0 - sair\n1 - Login");
             Scanner scan = new Scanner(System.in);
             int opcao = scan.nextInt();

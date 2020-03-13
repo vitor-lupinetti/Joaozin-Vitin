@@ -36,7 +36,7 @@ public class EstadoCadastraCliente extends EstadoMachine{
         }
         catch(Exception e){
             System.out.println("\n\n *****!ENTRADA DE DADOS INVALIDA!*****\n\n");
-            CrudConsole.estadoConsole = EnumEstado.CadastraCliente.getEstadoMaquina();;
+            CrudConsole.estadoConsole = EnumEstado.CadastraCliente.getEstadoMaquina();
         } 
         return false;
     }
