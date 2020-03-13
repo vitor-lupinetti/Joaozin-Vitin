@@ -29,4 +29,15 @@ public class CrudConsole {
         }
     }
     
+    public static void AcessoProxMenu () //valida o usuario para verificar se é Gerente ou Vendedor e inicia o prximo menu
+    {
+        if (Config.getInstance().getUsuarioLogado().getAcesso().equals("1"))
+        {
+            CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+        }
+        else
+        {
+            CrudConsole.estadoConsole = EnumEstado.MenuVendedor.getEstadoMaquina();
+        }        
+    }    
 }

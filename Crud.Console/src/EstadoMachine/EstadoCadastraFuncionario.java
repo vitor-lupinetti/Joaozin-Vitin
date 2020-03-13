@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package EstadoMachine;
-import business.config.Config;
 import crud.console.CrudConsole;
 import java.util.Scanner;
 import business.crud.Crud;
@@ -34,13 +33,7 @@ public class EstadoCadastraFuncionario extends EstadoMachine{
         Crud crud = new Crud();
         crud.Insere(func, EntidadesDisponiveis.FUNCIONARIO);
                 
-        if (Config.getInstance().getAcessoFuncionario().equals("1")){
-            CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
-        }
-        else
-        {
-            CrudConsole.estadoConsole = EnumEstado.MenuVendedor.getEstadoMaquina();
-        }
+        CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
 
         return false;        
     }

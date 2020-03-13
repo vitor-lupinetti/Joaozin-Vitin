@@ -21,15 +21,17 @@ public class EstadoCadastraProduto extends EstadoMachine{
         Produto produto = new Produto();
         
         System.out.println("Digite o nome do produto: ");
-        produto.setDescricao(scan.nextLine());
+        produto.setDescricao(scan.nextLine().trim());
         System.out.println("Digite a categoria: ");
-        produto.setCategoria(scan.nextLine());
+        produto.setCategoria(scan.nextLine().trim());
         System.out.println("Digite o valor: ");
-        produto.setValor(Double.parseDouble(scan.nextLine()));
+        produto.setValor(Double.parseDouble(scan.nextLine().trim()));
         
         Crud crud = new Crud();
         crud.Insere(produto, EntidadesDisponiveis.PRODUTO);
-        CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
+        
+         CrudConsole.AcessoProxMenu();
+        
         return false;
     }
 }

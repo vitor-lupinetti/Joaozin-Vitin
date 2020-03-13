@@ -5,6 +5,7 @@
  */
 package business.config;
 import comuns.enums.TipoRepositorio;
+import comuns.vos.Funcionario;
 /**
  *
  * @author vitorlupinetti
@@ -16,7 +17,7 @@ public class Config {
  
     private Config() {
     }
-    private String acessoFuncionario;
+    private Funcionario usuarioLogado;
     
     
     public static synchronized Config getInstance() {
@@ -41,15 +42,15 @@ public class Config {
     /**
      * @return the acessoFuncionario
      */
-    public String getAcessoFuncionario() {
-        return acessoFuncionario;
+    public Funcionario getUsuarioLogado() {
+        return usuarioLogado;
     }
 
     /**
      * @param acessoFuncionario the acessoFuncionario to set
      */
-    public void setAcessoFuncionario(String acessoFuncionario) {
-        this.acessoFuncionario = acessoFuncionario;
+    public void setUsuarioLogado(Funcionario l) {
+        this.usuarioLogado = l;
     }
     
 }

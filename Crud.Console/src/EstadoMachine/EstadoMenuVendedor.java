@@ -16,7 +16,7 @@ public class EstadoMenuVendedor extends EstadoMachine{
 
     @Override
     public boolean Executa() {
-        System.out.println(" Menu Principal");
+        System.out.println("\n ---Menu Principal---");
         Scanner scan = new Scanner(System.in);
         System.out.println("0 - Sair");
         System.out.println("1 - Cadastrar pedido");

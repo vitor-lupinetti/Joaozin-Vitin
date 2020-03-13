@@ -28,24 +28,18 @@ public class EstadoCadastraPedido extends EstadoMachine{
         String[] produtos = new String[pedido.getQtdProdutos()];
         
         for (int i = 0; i < pedido.getQtdProdutos(); i++) {
-            System.out.println("Digite o Nome do produto" + i + ":");
+            System.out.println("Digite o Nome do produto " + i + " :");
             scan = new Scanner(System.in);
             produtos[i] = scan.nextLine().trim();
         }
         pedido.setProdutos(produtos);
-        System.out.println("Digite 0 para vendedor ou 1 para gerente: ");
-        pedido.setVendedor(scan.nextLine());
+        pedido.setVendedor(Config.getInstance().getUsuarioLogado().getNome());
         
         Crud crud = new Crud();        
         crud.Insere(pedido, EntidadesDisponiveis.PEDIDO);
         
-        if (Config.getInstance().getAcessoFuncionario().equals("1")){
-            CrudConsole.estadoConsole = EnumEstado.MenuGerente.getEstadoMaquina();
-        }
-        else
-        {
-            CrudConsole.estadoConsole = EnumEstado.MenuVendedor.getEstadoMaquina();
-        }
+        CrudConsole.AcessoProxMenu();
+        
         return false;
     }
 }

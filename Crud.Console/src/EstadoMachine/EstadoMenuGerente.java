@@ -17,13 +17,13 @@ public class EstadoMenuGerente extends EstadoMachine {
 
     @Override
     public boolean Executa() {
-        System.out.println(" Menu Principal");
+        System.out.println("\n ---Menu Principal---");
         Scanner scan = new Scanner(System.in);
-        System.out.println("0 - Sair");
-        System.out.println("1 - Cadastrar funcionario");
-        System.out.println("2 - Cadastrar pedido");
-        System.out.println("3 - Cadastrar produto");
-        System.out.println("4 - Cadastrar cliente");
+        System.out.println("0 - Sair");        
+        System.out.println("1 - Cadastrar pedido");
+        System.out.println("2 - Cadastrar produto");
+        System.out.println("3 - Cadastrar cliente");
+        System.out.println("4 - Cadastrar funcionario");
 
         
         int opcao = scan.nextInt();
@@ -31,18 +31,18 @@ public class EstadoMenuGerente extends EstadoMachine {
         {
             case 0:
                 CrudConsole.estadoConsole = EnumEstado.Inicio.getEstadoMaquina();
-                break;
+                break;            
             case 1:
-                CrudConsole.estadoConsole = EnumEstado.CadastroFuncionario.getEstadoMaquina();
-                break;
-            case 2:
                 CrudConsole.estadoConsole = EnumEstado.CadastraPedido.getEstadoMaquina();
                 break;
-            case 3:
+            case 2:
                 CrudConsole.estadoConsole = EnumEstado.CadastraProduto.getEstadoMaquina();
                 break;
-            case 4:
+            case 3:
                 CrudConsole.estadoConsole = EnumEstado.CadastraCliente.getEstadoMaquina();
+                break;
+            case 4:
+                CrudConsole.estadoConsole = EnumEstado.CadastroFuncionario.getEstadoMaquina();
                 break;
         }
         return false;
