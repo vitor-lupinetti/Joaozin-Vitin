@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import comuns.crud.basis.Entidade;
 import comuns.enums.EntidadesDisponiveis;
+import java.io.IOException;
 /**
  *
  * @author vitorlupinetti
@@ -25,7 +26,7 @@ public abstract class DAO <E extends Entidade> {
     public abstract void insere(Entidade entidade, EntidadesDisponiveis enumEntidade);
     public abstract E atualiza(Entidade entidade, EntidadesDisponiveis enumEntidade);
     public abstract void deleta(Entidade entidade, EntidadesDisponiveis enumEntidade);
-    public abstract void lista(Entidade entidade, EntidadesDisponiveis enumEntidade);
+    public abstract void lista(EntidadesDisponiveis enumEntidade)throws IOException;
     
     
     protected E getInstanceOfE()

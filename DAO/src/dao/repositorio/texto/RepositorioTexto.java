@@ -10,6 +10,7 @@ import comuns.enums.TipoRepositorio;
 import dao.DAO;
 import dao.FabricaDAOs;
 import dao.repositorio.basis.Repositorio;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,8 +55,13 @@ public class RepositorioTexto extends Repositorio {
     
     @Override
     public void lista(EntidadesDisponiveis tipoEntidades){
-    	DAO dao = FabricaDAOs.Fabrica(tipoEntidade, TipoRepositorio.TEXTO);
-    	dao.lista(tipoEntidades);
+    	DAO dao = FabricaDAOs.Fabrica(tipoEntidades, TipoRepositorio.TEXTO);
+        try {
+            dao.lista(tipoEntidades);
+        } 
+        catch (IOException ex) {
+            Logger.getLogger(RepositorioTexto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     	
     }
     

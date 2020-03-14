@@ -5,6 +5,8 @@
  */
 package EstadoMachine;
 
+import business.crud.Crud;
+import comuns.enums.EntidadesDisponiveis;
 import crud.console.CrudConsole;
 import java.util.Scanner;
 
@@ -20,9 +22,10 @@ public class EstadoListaProduto extends EstadoMachine{
         
         try{           
             
+            Crud crud = new Crud();
+            crud.lista(EntidadesDisponiveis.PRODUTO); 
             
-            
-            System.out.println("0 - Voltar ao menu\n1 - Cadastrar\n2 - Alterar\n3 - Excluir");        
+            System.out.println("\n0 - Voltar ao menu\n1 - Cadastrar\n2 - Alterar\n3 - Excluir");        
             int opcao = scan.nextInt();
             switch (opcao)
             {

@@ -6,7 +6,6 @@
 package dao.acesso;
 
 import comuns.crud.basis.Entidade;
-import comuns.crud.basis.FabricaEntidades;
 import comuns.enums.EntidadesDisponiveis;
 import java.sql.SQLException;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,7 +16,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,7 +24,8 @@ import java.util.logging.Logger;
  * @author vitorlupinetti
  */
 public class FuncionarioTextoDAO extends DAO {
-       private final ConcurrentHashMap<String, Funcionario> funcionarios = new ConcurrentHashMap<>();
+    
+    private final ConcurrentHashMap<String, Funcionario> funcionarios = new ConcurrentHashMap<>();
     
     public FuncionarioTextoDAO()
     { 
@@ -115,33 +114,38 @@ public class FuncionarioTextoDAO extends DAO {
     public Entidade atualiza(Entidade entidade, EntidadesDisponiveis enumEntidade) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    /**
+     *
+     * @param enumEntidade
+     * @throws IOException
+     */
     @Override
-    public void lista(EntidadesDisponiveis enumEntidade){
+    public void lista(EntidadesDisponiveis enumEntidade)throws IOException{
     	String path = "C:/Joaozin-Vitin/DAO/src/dao/acesso/funcionario.txt";
     	String vetor [];
-        Funcionario f = (Funcionario)entidade;
-        Funcionario retorno = null;
+                
         BufferedReader buffRead = new BufferedReader(new FileReader(path));
+                  
         String linha = "";
         
         while (true) {
 
             linha = buffRead.readLine();
-            
             if(linha == null)
-                break;
-                        
+                break;                        
             vetor = linha.split(";");
             
-            System.out.println("Nome: " + vetor[0] +" UserName: " + vetor[1]);
-            if(retorno.setAcesso(vetor[3].equals("1")));
-            	System.out.println(" Gerente")
-            else
-            	System.out.println(" Vendedor")
+            System.out.print("Nome:" + vetor[0] +", UserName: " + vetor[1]);
+            if(vetor[3].equals("1")){
+            	System.out.println(", Gerente");
             }
+            else
+            	System.out.println(", Vendedor");
+        
         }
         buffRead.close();
-    
-    }
     }
 }
+        
+

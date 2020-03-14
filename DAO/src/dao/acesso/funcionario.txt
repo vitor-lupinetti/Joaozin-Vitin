@@ -3,4 +3,3 @@ joao;joaofelipe;abc;0
 Administrador;admin;admin;1
 Alfredo;a;a;0
 jose;josezinho12;abc;0
-messi;barcelona;3493949

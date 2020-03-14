@@ -5,6 +5,8 @@
  */
 package EstadoMachine;
 
+import business.crud.Crud;
+import comuns.enums.EntidadesDisponiveis;
 import crud.console.CrudConsole;
 import java.util.Scanner;
 
@@ -18,10 +20,11 @@ public class EstadoListaFuncionario extends EstadoMachine{
     @Override
     public boolean Executa() {
         
-        
+        Crud crud = new Crud();
+        crud.lista(EntidadesDisponiveis.FUNCIONARIO);
         
         try{            
-            System.out.println("0 - Voltar ao menu\n1 - Cadastrar\n2 - Alterar\n3 - Excluir");        
+            System.out.println("\n0 - Voltar ao menu\n1 - Cadastrar\n2 - Alterar\n3 - Excluir");        
             int opcao = scan.nextInt();
             switch (opcao)
             {

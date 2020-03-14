@@ -8,6 +8,7 @@ import business.basis.FabricaRepositorio;
 import comuns.crud.basis.Entidade;
 import comuns.enums.EntidadesDisponiveis;
 import dao.repositorio.basis.Repositorio;
+import java.io.IOException;
 /**
  *
  * @author vitorlupinetti
@@ -29,13 +30,9 @@ public class Crud {
       
       return retorno;
     }
-    public void Listar(Entidade E, EntidadesDisponiveis enumEntidade){
+    
+    public void lista(EntidadesDisponiveis enumEntidade) {
     	Repositorio repositorio = FabricaRepositorio.Fabrica();
-    	repositorio.insere(E, enumEntidade);
-    	
-    	return retorno;
+    	repositorio.lista(enumEntidade);
     }
-    public void lista(EntidadesDisponiveis enumEntidade)
-    	Repositorio repositorio = FabricaRepositorio.Fabrica();
-    	repositorio.
 }
